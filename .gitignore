@@ -1,1 +1,37 @@
 output/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Data files (optional, uncomment if you don't want to track large data files)
+# data/*.csv
+# data/*.vtp
+# data/*.pkl
+
+# Output files 
+*/rbc_vtp/
+*/paths/
+*.vtp

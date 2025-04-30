@@ -62,7 +62,7 @@ def run_full_pipeline(
 ) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # 总共 8 个阶段
+    # Total of 8 stages
     stage_bar = tqdm(total=8,
                      desc="Pipeline",
                      ncols=80,
@@ -119,12 +119,12 @@ def run_full_pipeline(
             out_vtp_dir = out_dir / "rbc_vtp"
         )
 
-        # —— 一定写出完整轨迹表 —— 
+        # --- Always write complete trajectory table ---
         out_tracks = out_dir / "rbc_tracks.csv"
         df_tracks.to_csv(out_tracks, index=False)
         print(f"[Main] wrote full tracks → {out_tracks}")
 
-        # —— 可选：稳态截取 —— 
+        # --- Optional: Steady-state extraction ---
         try:
             t0, t1 = steady_window
             steady_df = df_tracks[
@@ -136,7 +136,7 @@ def run_full_pipeline(
         except KeyError:
             print("[Warning] no 'time' column; skipping steady-state export")
     else:
-        # 静态 BFS 分支（兼容旧接口）
+        # Static BFS branch (compatible with old interface)
         run_queue_sim(
             g,
             tracks_csv    = out_dir / "rbc_tracks.csv",
